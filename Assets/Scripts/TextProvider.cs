@@ -9,6 +9,9 @@ public class TextProvider : MonoBehaviour
     [SerializeField] 
     private TextMeshProUGUI tmPro_;
     
+    [SerializeField]
+    // private 
+    
     public string word = "SAMPLE";
     private string formattedWord;
     private int _currentWordIndex = 0;
@@ -16,7 +19,7 @@ public class TextProvider : MonoBehaviour
     private bool isDone = false;
     List<int> incorrectChars = new List<int>();
 
-    private void checkInputOnUpdate()
+    private void CheckInputOnUpdate()
     {
         string inputString = Input.inputString;
         if (inputString != "") {
@@ -35,7 +38,7 @@ public class TextProvider : MonoBehaviour
                     temp[_currentWordIndex] = firstChar;
                     word = new string(temp);
                 }
-                updateText();
+                UpdateText();
                 _currentWordIndex++;
             }
 
@@ -46,7 +49,7 @@ public class TextProvider : MonoBehaviour
         }
     }
 
-    private void updateText()
+    private void UpdateText()
     {
         string highlightedText = word;
         string mdHighlight = "<color=\"orange\">";
@@ -64,7 +67,7 @@ public class TextProvider : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            checkInputOnUpdate();
+            CheckInputOnUpdate();
         }
 
     }
