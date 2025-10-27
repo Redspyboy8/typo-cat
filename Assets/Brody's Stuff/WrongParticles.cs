@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class WrongParticles : MonoBehaviour
 {
-
-    void Update()
+    public void startWrongParticles()
     {
+        StartCoroutine(SpawnParticles());
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartCoroutine(SpawnParticles());
-        }
     }
     IEnumerator SpawnParticles()
     {

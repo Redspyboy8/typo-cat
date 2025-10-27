@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,8 +12,16 @@ public class GameLoop : MonoBehaviour
     
     [FormerlySerializedAs("dictCreator")] [SerializeField]
     private DictManager dictManager;
+    
+    private Particles _particles;
 
-    private void awardPoints() {}
+    public int points = 0;
+
+    private void awardPoints()
+    {
+        double basePoints = Math.Floor(textManager.wordLength * 1.5);
+        points += (int)basePoints;
+    }
 
     private void StartNewWord()
     {
@@ -21,6 +30,7 @@ public class GameLoop : MonoBehaviour
     }
     void Start()
     {
+        _particles = GetComponent<Particles>();
         while (!dictManager.isLoaded) {}
 
         textManager.word = dictManager.GetRandomWord();
@@ -35,11 +45,13 @@ public class GameLoop : MonoBehaviour
         {
             if (textManager.isCorrect)
             {
+                _particles.spawnCorrectParticles();
                 awardPoints();
                 StartNewWord();
             }
             else
             {
+                _particles.spawnWrongParticles();
                 Invoke(nameof(StartNewWord), 2f);
                 textManager.isDone = false;
             }

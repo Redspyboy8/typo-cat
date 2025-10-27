@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class CorrectParticles : MonoBehaviour
 {
-
-    void Update()
+    public void startCorrectParticles()
     {
+        StartCoroutine(SpawnParticles());
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            StartCoroutine(SpawnParticles());
-        }
     }
     IEnumerator SpawnParticles()
     {
@@ -19,6 +15,7 @@ public class CorrectParticles : MonoBehaviour
         {
             gameObject.GetComponent<ParticleSystem>().Emit(5);
             yield return new WaitForSeconds(0.2f);
+            print("spawning!");
         }
     }
 }

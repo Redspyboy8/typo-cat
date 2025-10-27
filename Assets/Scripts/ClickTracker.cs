@@ -7,6 +7,9 @@ public class ClickTracker : MonoBehaviour
 {
 
     TextMeshProUGUI _trackingText;
+    
+    [SerializeField]
+    public GameLoop _gameLoop;
 
     /// <summary>
     /// Awake is run before the Start() method, usually used for
@@ -21,7 +24,7 @@ public class ClickTracker : MonoBehaviour
     {
         // See how many clicks the player has, stored in the static
         // variable `Clickable.Clicks`.
-        _trackingText.text = "Clicks: " + Clickable.Clicks;
+        _trackingText.text = "Points: " + _gameLoop.points;
     }
 
 }

@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class CorrectArrows : MonoBehaviour
 {
-
-    void Update()
+    public void spawnCorrectParticles()
     {
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            StartCoroutine(SpawnParticles());
-        }
+        StartCoroutine(SpawnParticles());
     }
     IEnumerator SpawnParticles()
     {
