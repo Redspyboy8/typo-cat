@@ -13,7 +13,7 @@ public class GameLoop : MonoBehaviour
     [FormerlySerializedAs("dictCreator")] [SerializeField]
     private DictManager dictManager;
     
-    private Particles _particles;
+    // private Particles _particles;
 
     public int points = 0;
 
@@ -30,7 +30,7 @@ public class GameLoop : MonoBehaviour
     }
     void Start()
     {
-        _particles = GetComponent<Particles>();
+        // _particles = GetComponent<Particles>();
         while (!dictManager.isLoaded) {}
 
         textManager.word = dictManager.GetRandomWord();
@@ -45,13 +45,13 @@ public class GameLoop : MonoBehaviour
         {
             if (textManager.isCorrect)
             {
-                _particles.spawnCorrectParticles();
+                // _particles.spawnCorrectParticles();
                 awardPoints();
                 StartNewWord();
             }
             else
             {
-                _particles.spawnWrongParticles();
+                // _particles.spawnWrongParticles();
                 Invoke(nameof(StartNewWord), 2f);
                 textManager.isDone = false;
             }
