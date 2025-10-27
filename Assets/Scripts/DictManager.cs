@@ -6,13 +6,19 @@ using SimpleJSON;
 using UnityEngine;
 
 
-public class DictCreator : MonoBehaviour
+public class DictManager : MonoBehaviour
 {
-    public List<string> all_words = new List<string>();
+    private List<string> _all_words = new List<string>();
     public bool isLoaded = false; 
 
-    public Dictionary<int, List<string>> AllDicts = new Dictionary<int, List<string>>();
+    // public Dictionary<int, List<string>> AllDicts = new Dictionary<int, List<string>>();
     // Start is called before the first frame update
+
+    public string GetRandomWord()
+    {
+        return _all_words[Random.Range(0, _all_words.Count)];
+    }
+    
     void Start()
     {
         string rootPath = Application.dataPath + "/Text";
@@ -20,7 +26,9 @@ public class DictCreator : MonoBehaviour
         string fileContents =  sr.ReadToEnd();
         sr.Close();
         fileContents = fileContents.Substring(1, fileContents.Length - 2);
-        all_words = fileContents.Split(",").ToList();
+        fileContents = fileContents.Replace("\"", "");
+        fileContents = fileContents.Replace(" ", "");
+        _all_words = fileContents.Split(",").ToList();
         isLoaded = true;
     }
 

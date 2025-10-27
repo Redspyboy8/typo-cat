@@ -670,6 +670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1198917211}
   - component: {fileID: 1198917212}
+  - component: {fileID: 1198917213}
   m_Layer: 0
   m_Name: Main Scripts
   m_TagString: Untagged
@@ -704,6 +705,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db41164a0b314745bde0d96024e1c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  all_words: []
+  isLoaded: 0
+--- !u!114 &1198917213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198917210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871a97cfea8044bde96869c4e409f87d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textProvider: {fileID: 1442011529}
+  dictCreator: {fileID: 1198917212}
 --- !u!1 &1322689832
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,7 +824,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -194.66, y: 156.097}
+  m_AnchoredPosition: {x: -158, y: 201}
   m_SizeDelta: {x: 725.72, y: -126.066}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442011529
@@ -823,7 +840,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmPro_: {fileID: 1442011530}
-  word: CHARTRUCE
+  wordLength: 0
+  isCorrect: 1
+  word: APPLES
+  isDone: 0
 --- !u!114 &1442011530
 MonoBehaviour:
   m_ObjectHideFlags: 0
